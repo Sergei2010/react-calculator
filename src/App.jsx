@@ -1,5 +1,6 @@
 /* eslint no-eval:0 */
 import React, { useRef, useState } from 'react'
+import { evaluate } from 'mathjs'
 import store from './utils/store'
 import InputItem from './components/inputItem.jsx'
 import NumbersItem from './components/numbersItem'
@@ -18,7 +19,7 @@ const App = () => {
 	const equalOperation = value => {
 		let output = refOutput.current
 		try {
-			output.value = eval(output.value)
+			output.value = evaluate(output.value)
 			setOut(output.value)
 		} catch (error) {
 			output.value = 'ERROR'
